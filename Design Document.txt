@@ -1,0 +1,120 @@
+Design Document
+===============
+
+Genre: Shooter / Puzzle
+
+Goal: Escape the complex
+
+Story:
+
+[Intro]
+
+You (Player) are a broke, bored and average girl/guy (18yo) who just finished high school. Out of luck and money you want to buy tickets to see your favorite band insert band name here.
+
+Mom and Dad have decided that you are old enough to get a job and demand that you do. With only two weeks until the concert you decide that any job will have to do. You can't wait to see insert band member name here in person!
+
+Walking downtown you find a promising advertisement:
+Earn easy money fast! No previous work experience required. 18+ of age and the will to carry out one month of excruciating work in 2 weeks! Big $$$ Call: 555 0110.
+
+Convinced that this is your only chance to earn enough for the concert in such short time you decide to give them a call. I mean, what’s the worst that can happen?
+
+You take out your cell and dial the number. 5-5-5-0-1-1-0 and call!
+
+Suddenly, blackness.
+
+You awake inside a room.
+
+Whiteness envelops you.
+
+You look around searching for an exit.
+
+Nothing.
+
+Then you notice it.
+
+A small box in the far left corner.
+
+You walk up to it.
+
+
+[Scene 1: The box]
+Press 'e' to open the box
+
+*Player gains white ball gun*
+
+Weapon:
+	"Welcome!"
+	"Thank you for applying for our tester position"
+	"Please consider this as your first (and hopefully not last) interview at our company"
+	"Accomplishing the goals of each room will give you access to ~special~ rewards"
+	"For starters, we will test your aiming abilities."
+	"If you have any objections, please do not hesitate to shoot yourself!"
+	"Else, please refrain from shooting yourself. That will result in you being fired and or dead!"
+	"To begin shoot the panel that will be lowered in front of you"
+
+*Player shoots panel*
+
+Weapon:
+	"Great shot!"
+	"We find that you are a good fit for this company!"
+	"Welcome aboard!"
+
+*Level up!*
+*Level 1: I got hired!*
+
+Weapon:
+	"Please proceed to the door that has opened at the southern wall."
+	"Mid the gap!"
+
+[Scene 2: The hoops]
+
+Weapon:
+	"Welcome new recruit!"
+	"As a valued member of this prestigious company. You have the opportunity to test out some of our latest and greatest tech!"
+	"Behold, the ice hoop!"
+	"A marvel of engineering that transform any white ball into a freezing pellet."
+	"Or at least that's what it is supposed to do."
+	"Don't worry! It's totally safe, I think."
+	"They said they fixed it after the last tester shot himself in the leg."
+	"This time it won't bounce off the wall!"
+	"Destroy this wall and advance to the next room on the other side!"
+	"Good luck!"
+
+*Player destroys wall*
+
+Weapon:
+	"Whoo! Yeah! It worked!"
+	- Clears throat -
+	"I mean, yes of course it works."
+	"Well done!"
+	"Please proceed to the next room."
+
+[Scene 3: This does not look safe]
+
+
+
+- - - - - - - - - -
+
+*** MDA ***
+
+Mechanics:
+- Puzzle level
+- Fictional weapons
+- Fatal enemies
+- Race against time
+
+Dynamics:
+
+
+Aesthetics:
+- Challenge
+- Fantasy
+- Discovery
+
+- - - - - - - - - - -
+
+*** Feedback Loop ***
+
+Negative feedback:
+
+Making the game progressively harder while the player becomes progressively stronger.
