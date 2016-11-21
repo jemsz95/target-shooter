@@ -2,7 +2,7 @@
   "Number": 1,
   "Name": "Level1",
   "Goal": 8,
-  "TimeLimit": 12,
+  "TimeLimit": 15,
   "TargetValue": 2, 
   "Descriptors": [
     {

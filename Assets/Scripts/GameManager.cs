@@ -17,16 +17,16 @@ public class GameManager : MonoBehaviour {
   public int Points;
   public float ElapsedTime {
     get {
-      if(timeOffset == 0) {
-        return 0;
-      }
-
       return Time.time - timeOffset;
     }
   }
   public float TimeLeft {
     get {
-      return TimeLimit - ElapsedTime;
+      float timeLeft = TimeLimit - ElapsedTime;
+      if(timeLeft < 0) {
+        return 0;
+      }
+      return timeLeft;
     }
   }
 
@@ -36,18 +36,20 @@ public class GameManager : MonoBehaviour {
   public void GrantVictory() {
     Debug.Log("Victory!");
     InGame = false;
-    timeOffset = 0;
+    TimeLimit = 0;
   }
 
   public void GrantDefeat() {
     Debug.Log("Defeat.");
     InGame = false;
-    timeOffset = 0;
   }
 
   public void NewGame() {
     SceneManager.LoadScene("Game");
+    timeOffset = 0;
+    TimeLimit = 0;
     nextLevel = 0;
+    Debug.Log("Bla");
   }
 
   public void StartGame() {
