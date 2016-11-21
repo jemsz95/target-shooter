@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-
   public static GameManager Instance;
 
   public int PointsGoal;
@@ -12,6 +11,7 @@ public class GameManager : MonoBehaviour {
 
   public Level CurrentLevel;
   public TargetSystem TargetSystem;
+  public HUD HUDSystem;
 
   public bool InGame;
   public int Points;
@@ -34,13 +34,13 @@ public class GameManager : MonoBehaviour {
   private int nextLevel;
 
   public void GrantVictory() {
-    Debug.Log("Victory!");
+    HUDSystem.Notify("Victory!", 3.0f);
     InGame = false;
     TimeLimit = 0;
   }
 
   public void GrantDefeat() {
-    Debug.Log("Defeat.");
+    HUDSystem.Notify("Defeat.", 3.0f);
     InGame = false;
   }
 
@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour {
     timeOffset = 0;
     TimeLimit = 0;
     nextLevel = 0;
-    Debug.Log("Bla");
   }
 
   public void StartGame() {
@@ -59,14 +58,28 @@ public class GameManager : MonoBehaviour {
     CurrentLevel = Level.LoadLevel(LevelsAssets[nextLevel]);
     PointsGoal = CurrentLevel.Goal;
     TimeLimit = CurrentLevel.TimeLimit;
+
+    HUDSystem.Notify("Level: " + CurrentLevel.Number, 2.0f);
+
     TargetSystem.StartRun();
     nextLevel++;
+
+    if(nextLevel == LevelsAssets.Length) {
+      nextLevel = 0;
+    }
   }
 
   void Start() {
     NewGame();
   }
 
+	// Update is called once per frame
+	void Update() {
+    if(InGame) {
+      GameLoop();
+    }
+	}
+  
   void Awake() {
     if(Instance == null) {
       Instance = this;
@@ -79,19 +92,10 @@ public class GameManager : MonoBehaviour {
     }
   }
   
-	// Update is called once per frame
-	void Update() {
-    if(InGame) {
-      GameLoop();
-    }
-	}
-  
   void GameLoop() {
 	  if(Points >= PointsGoal) {
       GrantVictory();
-    }
-    
-    if(ElapsedTime > TimeLimit) {
+    } else if(ElapsedTime > TimeLimit) {
       GrantDefeat();
     }
   }

@@ -4,6 +4,7 @@ using System.Collections;
 public class Loader : MonoBehaviour {
   public GameObject GameManagerPrefab;
   public TargetSystem TargetSystem;
+  public HUD HUDSystem;
   
   void Start() {
     if(GameManager.Instance == null) {
@@ -11,5 +12,6 @@ public class Loader : MonoBehaviour {
     }
 
     GameManager.Instance.TargetSystem = TargetSystem;
+    GameManager.Instance.HUDSystem = HUDSystem;
   }
 }

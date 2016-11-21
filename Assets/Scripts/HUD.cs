@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class HUD : MonoBehaviour {
-  
   private struct Message {
     public string content;
     public float time;
@@ -25,12 +24,14 @@ public class HUD : MonoBehaviour {
   private LinkedList<Message> notifications;
 
   public void Notify(string message, float time) {
-    StartCoroutine(AddNotification(new Message(message, time)))
+    StartCoroutine(AddNotification(new Message(message, time)));
   }
-
+  
   // Use this for initialization
   void Start () {
+    notifications = new LinkedList<Message>();
     Notify("Advance to counter to start.", 3.0f);
+    Notify("Interact with the chest to open the menu.", 3.0f);
   }
   
   // Update is called once per frame
@@ -47,18 +48,18 @@ public class HUD : MonoBehaviour {
 
   IEnumerator AddNotification(Message m) {
     if(notifications.Count == 0) {
-      notifications.AddBack(m);
+      notifications.AddLast(m);
 
       while(notifications.Count > 0) {
-        Message m = notifications.First;
+        Message msg = notifications.First.Value;
+        GameStatusLabel.text = msg.content;
+        yield return new WaitForSeconds(msg.time);
         notifications.RemoveFirst();
-        GameStatusLabel.text = m.content;
-        yield return new WaitForSeconds(m.time);
       }
 
       GameStatusLabel.text = "";
     } else {
-      notidications.AddBack(m);
+      notifications.AddLast(m);
     }
   }
 }
